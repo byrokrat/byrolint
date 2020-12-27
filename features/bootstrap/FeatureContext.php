@@ -56,75 +56,12 @@ class FeatureContext implements Context
     }
 
     /**
-     * @Then there is no error
-     */
-    public function thereIsNoError(): void
-    {
-        if ($this->result->isError()) {
-            throw new \Exception("Error: {$this->result->getErrorOutput()}");
-        }
-    }
-
-    /**
-     * @Then I get an error
-     */
-    public function iGetAnError(): void
-    {
-        if (!$this->result->isError()) {
-            throw new \Exception('App invocation should result in an error');
-        }
-    }
-
-    /**
-     * @Then I get an error like :regexp
-     */
-    public function iGetAnErrorLike($regexp): void
-    {
-        $this->iGetAnError();
-        if (!preg_match($regexp, $this->result->getErrorOutput())) {
-            throw new \Exception("Unable to find $regexp in error {$this->result->getErrorOutput()}");
-        }
-    }
-
-    /**
-     * @Then the output contains :expectedCount lines like :regexp
-     */
-    public function theOutputContainsLinesLike($expectedCount, $regexp): void
-    {
-        $output = explode("\n", $this->result->getOutput());
-
-        $iCount = 0;
-
-        foreach ($output as $line) {
-            if (preg_match($regexp, $line)) {
-                $iCount++;
-            }
-        }
-
-        if ($iCount !== (int)$expectedCount) {
-            throw new \Exception(
-                "Invalid count ($iCount) of $regexp (expected $expectedCount) in {$this->result->getOutput()}"
-            );
-        }
-    }
-
-    /**
      * @Then the output contains :string
      */
     public function theOutputContains($string): void
     {
         if (!preg_match("/$string/i", $this->result->getOutput())) {
             throw new \Exception("Unable to find $string in output {$this->result->getOutput()}");
-        }
-    }
-
-    /**
-     * @Then the output does not contain :string
-     */
-    public function theOutputDoesNotContain($string): void
-    {
-        if (preg_match("/$string/i", $this->result->getOutput())) {
-            throw new \Exception("$string should not be in output");
         }
     }
 }
