@@ -1,0 +1,48 @@
+{
+    "name": "byrokrat/byrolint",
+    "description": "Command line utility for linting swedish bureaucratic content",
+    "keywords": [
+        "bankgiro",
+        "plusgiro",
+        "bank account",
+        "Personnummer",
+        "Organisationsnummer",
+        "Personal id",
+        "Corporation id",
+        "personal identity number"
+    ],
+    "homepage": "https://github.com/byrokrat/byrolint",
+    "type": "project",
+    "license": "GPL-3.0-or-later",
+    "authors": [
+        {
+            "name": "Hannes Forsgård",
+            "email": "hannes.forsgard@fripost.org"
+        }
+    ],
+    "bin": [
+        "bin/byrolint"
+    ],
+    "autoload": {
+        "psr-4": {
+            "byrokrat\\byrolint\\": ["src/"]
+        }
+    },
+    "config": {
+        "platform": {
+            "php": "7.3.0"
+        }
+    },
+    "require": {
+        "php": "^7.3 || ^8.0",
+        "ext-bcmath": "*",
+        "ext-mbstring": "*",
+        "ext-simplexml": "*",
+        "byrokrat/id": "^2.1",
+        "byrokrat/banking": "^2.2",
+        "symfony/console": "^5"
+    },
+    "require-dev": {
+        "roave/security-advisories": "dev-latest"
+    }
+}

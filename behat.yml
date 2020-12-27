@@ -1,0 +1,10 @@
+default:
+    suites:
+        default:
+            contexts:
+                - FeatureContext:
+                    executable: bin/byrolint
+        phar:
+            contexts:
+                - FeatureContext:
+                    executable: byrolint.phar

@@ -1,0 +1,7 @@
+/vendor
+/composer.phar
+/byrolint.phar
+/byrolint.phar.asc
+/*.local.*
+/tools
+/VERSION
