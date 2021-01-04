@@ -1,3 +1,5 @@
+![byrokrat](res/logo.svg)
+
 # byrolint
 
 [![Packagist Version](https://img.shields.io/packagist/v/byrokrat/byrolint.svg?style=flat-square)](https://packagist.org/packages/byrokrat/byrolint)
